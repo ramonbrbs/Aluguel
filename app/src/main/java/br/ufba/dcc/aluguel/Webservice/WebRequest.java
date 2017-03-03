@@ -1,5 +1,7 @@
 package br.ufba.dcc.aluguel.Webservice;
 
+import android.os.AsyncTask;
+
 import java.io.IOException;
 
 import okhttp3.MediaType;
@@ -13,17 +15,46 @@ import okhttp3.Request.Builder;
  * Created by ASUS on 03/03/2017.
  */
 
-public class WebRequest {
+public class WebRequest extends AsyncTask<String, Void, String> {
 
+
+    private Exception exception;
+
+    @Override
+    protected String doInBackground(String... urls) {
+        try {
+            switch (this.method.toUpperCase()){
+                case "POST":
+                    return doPost(this.content);
+                case "GET":
+                    return doGet();
+            }
+        } catch (Exception e) {
+            this.exception = e;
+
+            return null;
+        }
+        return "";
+    }
+
+    @Override
+    protected void onPostExecute(String feed) {
+        // TODO: check this.exception
+        // TODO: do something with the feed
+    }
 
     private String url;
+    private String method;
+    private String content;
 
-    public WebRequest(String url){
+    public WebRequest(String url, String method, String content){
         this.url = url;
+        this.method = method;
+        this.content = content;
     }
 
 
-    public String post(String json) throws IOException {
+    public String doPost(String json) throws IOException {
 
         OkHttpClient client = new OkHttpClient();
 
@@ -46,7 +77,7 @@ public class WebRequest {
 
     }
 
-    public String get() throws IOException {
+    public String doGet() throws IOException {
 
 
         OkHttpClient client = new OkHttpClient();
