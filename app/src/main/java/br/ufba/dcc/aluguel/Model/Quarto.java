@@ -1,14 +1,20 @@
 package br.ufba.dcc.aluguel.Model;
 
+import java.io.Serializable;
+
 /**
  * Created by ASUS on 03/03/2017.
  */
 
-public class Quarto {
+public class Quarto implements Serializable{
     public int getId() {
         return id;
     }
 
+    @Override
+    public String toString(){
+        return titulo + " - " + bairro;
+    }
     public void setId(int id) {
         this.id = id;
     }

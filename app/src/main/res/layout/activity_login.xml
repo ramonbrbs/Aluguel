@@ -14,12 +14,12 @@
         android:text="Login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp"
         android:id="@+id/textView"
         android:textAppearance="@android:style/TextAppearance.Large"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_alignRight="@+id/brnLogin"
+        android:layout_alignEnd="@+id/brnLogin"
+        android:layout_below="@+id/textView5" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -68,5 +68,16 @@
         android:layout_below="@+id/brnLogin"
         android:layout_centerHorizontal="true"
         android:background="?attr/colorButtonNormal" />
+
+    <TextView
+        android:text="Roomy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView5"
+        android:textSize="50sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif" />
 
 </RelativeLayout>
