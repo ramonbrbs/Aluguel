@@ -17,7 +17,6 @@ import okhttp3.Request.Builder;
 
 public class WebRequest extends AsyncTask<String, Void, String> {
 
-
     private Exception exception;
 
     @Override
@@ -31,7 +30,6 @@ public class WebRequest extends AsyncTask<String, Void, String> {
             }
         } catch (Exception e) {
             this.exception = e;
-
             return null;
         }
         return "";
@@ -78,7 +76,6 @@ public class WebRequest extends AsyncTask<String, Void, String> {
     }
 
     public String doGet() throws IOException {
-
 
         OkHttpClient client = new OkHttpClient();
 

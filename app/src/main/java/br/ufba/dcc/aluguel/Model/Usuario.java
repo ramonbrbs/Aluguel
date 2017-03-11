@@ -5,20 +5,29 @@ package br.ufba.dcc.aluguel.Model;
  */
 
 public class Usuario {
-    public int getId() {
-        return id;
+    private int id;
+    private String name;
+    private String email;
+    private String phonenumber;
+    private String birthdate;
+    private boolean drink;
+    private boolean smoke;
+    private char sex;
+
+    public String getBirthdate() {
+        return birthdate;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
     }
 
-    public String getNome() {
-        return nome;
+    public boolean isDrink() {
+        return drink;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setDrink(boolean drink) {
+        this.drink = drink;
     }
 
     public String getEmail() {
@@ -29,26 +38,43 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public int getId() {
+        return id;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getName() {
+        return name;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    private int id;
-    private String nome;
-    private String email;
-    private String telefone;
-    private String senha;
+    public String getPhonenumber() {
+        return phonenumber;
+    }
 
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
+    }
+
+    public char getSex() {
+        return sex;
+    }
+
+    public void setSex(char sex) {
+        this.sex = sex;
+    }
+
+    public boolean isSmoke() {
+        return smoke;
+    }
+
+    public void setSmoke(boolean smoke) {
+        this.smoke = smoke;
+    }
 }
