@@ -15,7 +15,7 @@ import br.ufba.dcc.aluguel.Model.Quarto;
 
 public class QuartoWS {
 
-    public static List<Quarto> listaQuartos() throws IOException, ExecutionException, InterruptedException {
+    public static List<Quarto> listaQuartos() throws IOExceptiogsonn, ExecutionException, InterruptedException {
         WebRequest request = new WebRequest("http://www.mocky.io/v2/58b95a3b0f00003a0df09c88","GET","");
         String retorno = request.execute("").get();
         Gson gson = new Gson();
@@ -25,7 +25,6 @@ public class QuartoWS {
     public static boolean publicaQuarto(Quarto quarto) throws ExecutionException, InterruptedException {
         Gson toJS = new Gson();
         String quartoJSON = toJS.toJson(quarto);
-
         WebRequest request = new WebRequest("http://www.mocky.io/v2/58b95a3b0f00003a0df09c88","POST",quartoJSON);
         String retorno = request.execute("").get();
         Gson gson = new Gson();
