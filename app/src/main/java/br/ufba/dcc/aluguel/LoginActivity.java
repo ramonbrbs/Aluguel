@@ -32,8 +32,6 @@ public class LoginActivity extends AppCompatActivity {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
         //String j = quartos.toString();
 
@@ -47,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Usuario u = new Usuario();
                 u.setEmail(EdtEmail.getText().toString());
-                u.setSenha(EdtSenha.getText().toString());
+                //u.setP(EdtSenha.getText().toString());
                 try {
                     if (UsuarioRN.login(u) != ""){ //verifica se retorna um token
                         Intent intent = new Intent(LoginActivity.this,ListagemActivity.class);
