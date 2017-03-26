@@ -16,53 +16,119 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="8dp"
         android:id="@+id/textView2"
         android:textAppearance="@android:style/TextAppearance.Large"
         android:textSize="30sp" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="37dp"
-        android:id="@+id/txtNome"
-        android:hint="Nome" />
 
-    <EditText
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:layout_marginTop="14dp"
-        android:id="@+id/txtEmail"
-        android:hint="E-mail"
-        android:layout_below="@+id/txtNome"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:layout_marginTop="17dp"
-        android:id="@+id/txtSenha"
-        android:hint="Senha"
-        android:layout_below="@+id/txtEmail"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <Button
-        android:text="Cadastrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="66dp"
-        android:id="@+id/btnCadastrar"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:layout_below="@+id/textView2"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="37dp"
+                android:id="@+id/txtNome"
+                android:hint="Nome" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:layout_marginTop="14dp"
+                android:id="@+id/txtEmail"
+                android:hint="E-mail"
+                android:layout_below="@+id/txtNome"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:layout_marginTop="17dp"
+                android:id="@+id/txtSenha"
+                android:hint="Senha"
+                android:layout_below="@+id/txtEmail"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:ems="10"
+                android:layout_marginTop="17dp"
+                android:id="@+id/txtTelefone"
+                android:hint="Tefone"
+                android:layout_below="@+id/txtEmail"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:ems="10"
+                android:id="@+id/txtNasc"
+                android:hint="Nascimento" />
+
+            <RadioButton
+                android:text="Masculino"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rdMasculino" />
+
+            <RadioButton
+                android:text="Feminino"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rdFem" />
+
+            <RadioButton
+                android:text="Outros"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rdOutro" />
+
+            <CheckBox
+                android:text="Bebe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/chkBebe" />
+
+            <CheckBox
+                android:text="Fuma"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/chkFuma" />
+
+            <Button
+                android:text="Cadastrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="66dp"
+                android:id="@+id/btnCadastrar"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
+
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

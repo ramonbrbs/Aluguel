@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
+import br.ufba.dcc.aluguel.Model.Constantes;
 import br.ufba.dcc.aluguel.Model.Quarto;
 import br.ufba.dcc.aluguel.Model.Usuario;
 
@@ -22,7 +23,7 @@ public class UsuarioWS {
         Gson toJS = new Gson();
         String usuarioJSON = toJS.toJson(usuario);
 
-        WebRequest request = new WebRequest("https://demo0075251.mockable.io/login","POST",usuarioJSON);
+        WebRequest request = new WebRequest(Constantes.enderecoAPI + "/user/new","POST",usuarioJSON);
         String retorno = request.execute("").get();
         Gson gson = new Gson();
         Map<String,String> arrayRetorno = gson.fromJson(retorno, new TypeToken<Map<String,String>>(){}.getType());
@@ -33,10 +34,20 @@ public class UsuarioWS {
         Gson toJS = new Gson();
         String usuarioJSON = toJS.toJson(usuario);
 
-        WebRequest request = new WebRequest("http://www.mocky.io/v2/58b95a3b0f00003a0df09c88","POST",usuarioJSON);
+        WebRequest request = new WebRequest(Constantes.enderecoAPI + "/user/new","POST",usuarioJSON);
         String retorno = request.execute("").get();
         Gson gson = new Gson();
-        return gson.fromJson(retorno, new TypeToken<List<Quarto>>(){}.getType());
+        return gson.fromJson(retorno, String.class);
+    }
+
+    public static Usuario detalhe(int id) throws IOException, ExecutionException, InterruptedException {
+        Gson toJS = new Gson();
+
+
+        WebRequest request = new WebRequest(Constantes.enderecoAPI + "/user/"+id,"GET","");
+        String retorno = request.execute("").get();
+        Gson gson = new Gson();
+        return gson.fromJson(retorno, Usuario.class);
     }
 
 

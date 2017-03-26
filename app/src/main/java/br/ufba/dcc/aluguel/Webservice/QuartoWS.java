@@ -7,6 +7,8 @@ import java.util.concurrent.ExecutionException;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import br.ufba.dcc.aluguel.Model.Constantes;
+import br.ufba.dcc.aluguel.Model.Endereco;
 import br.ufba.dcc.aluguel.Model.Quarto;
 
 /**
@@ -25,7 +27,7 @@ public class QuartoWS {
     public static boolean publicaQuarto(Quarto quarto) throws ExecutionException, InterruptedException {
         Gson toJS = new Gson();
         String quartoJSON = toJS.toJson(quarto);
-        WebRequest request = new WebRequest("http://www.mocky.io/v2/58b95a3b0f00003a0df09c88","POST",quartoJSON);
+        WebRequest request = new WebRequest(Constantes.enderecoAPI + "/bedroom/new","POST",quartoJSON);
         String retorno = request.execute("").get();
         Gson gson = new Gson();
         return gson.fromJson(retorno, Boolean.class);

@@ -45,7 +45,8 @@ public class WebRequest extends AsyncTask<String, Void, String> {
     private String method;
     private String content;
 
-    public WebRequest(String url, String method, String content){
+    public
+    WebRequest(String url, String method, String content){
         this.url = url;
         this.method = method;
         this.content = content;

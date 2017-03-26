@@ -1,5 +1,7 @@
 package br.ufba.dcc.aluguel.Model;
 
+import java.util.Date;
+
 /**
  * Created by ASUS on 03/03/2017.
  */
@@ -13,6 +15,7 @@ public class Usuario {
     private boolean drink;
     private boolean smoke;
     private char sex;
+
 
     public String getBirthdate() {
         return birthdate;

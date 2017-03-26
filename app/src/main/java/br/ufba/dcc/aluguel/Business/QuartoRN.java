@@ -23,4 +23,7 @@ public class QuartoRN {
     public static boolean alteraQuarto(Quarto quarto) throws ExecutionException, InterruptedException {
         return QuartoWS.alteraQuarto(quarto);
     }
+    public static Quarto detalhe(int id) throws ExecutionException, InterruptedException {
+        return QuartoWS.detalheQuarto(id);
+    }
 }

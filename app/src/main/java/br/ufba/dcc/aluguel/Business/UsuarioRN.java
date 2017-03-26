@@ -20,4 +20,8 @@ public class UsuarioRN {
     public static String cadastrar(Usuario usuario) throws IOException, ExecutionException, InterruptedException {
         return UsuarioWS.cadastrar(usuario);
     }
+
+    public static Usuario detalhe(int id) throws IOException, ExecutionException, InterruptedException {
+        return UsuarioWS.detalhe(id);
+    }
 }

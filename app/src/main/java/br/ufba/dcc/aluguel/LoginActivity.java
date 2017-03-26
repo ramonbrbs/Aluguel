@@ -13,7 +13,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import br.ufba.dcc.aluguel.Business.InfoRN;
 import br.ufba.dcc.aluguel.Business.UsuarioRN;
+import br.ufba.dcc.aluguel.Model.Info;
 import br.ufba.dcc.aluguel.Model.Quarto;
 import br.ufba.dcc.aluguel.Model.Usuario;
 import br.ufba.dcc.aluguel.Webservice.QuartoWS;
@@ -47,7 +49,12 @@ public class LoginActivity extends AppCompatActivity {
                 u.setEmail(EdtEmail.getText().toString());
                 //u.setP(EdtSenha.getText().toString());
                 try {
-                    if (UsuarioRN.login(u) != ""){ //verifica se retorna um token
+                    String hash = UsuarioRN.login(u);
+                    if (hash != ""){ //verifica se retorna um token
+                        Info i = new Info();
+                        i.setHash(hash);
+                        i.setIndex(0);
+                        InfoRN.insere(LoginActivity.this, i);
                         Intent intent = new Intent(LoginActivity.this,ListagemActivity.class);
                         startActivity(intent);
                     }

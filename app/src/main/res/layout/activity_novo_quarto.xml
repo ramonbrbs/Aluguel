@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_novo_quarto"
     android:layout_width="match_parent"
@@ -10,71 +12,136 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="br.ufba.dcc.aluguel.NovoQuartoActivity">
 
-    <Button
-        android:text="Publicar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="66dp"
-        android:id="@+id/btnPublicar"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_below="@+id/textView4"
-        android:layout_alignRight="@+id/btnPublicar"
-        android:layout_alignEnd="@+id/btnPublicar"
-        android:layout_marginTop="37dp"
-        android:id="@+id/txtTitulo"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:hint="Título" />
+        android:layout_alignParentStart="true">
 
-    <TextView
-        android:text="Novo Anúncio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:id="@+id/textView4"
-        android:textAppearance="@android:style/TextAppearance.Large"
-        android:textSize="30sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/txtDescricao"
-        android:hint="Descrição"
-        android:layout_below="@+id/txtTitulo"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <TextView
+                android:text="Novo Anúncio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:id="@+id/textView4"
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:textSize="30sp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/txtBairro"
-        android:hint="Bairro" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:srcCompat="@android:drawable/ic_menu_help"
+                android:id="@+id/imgNovo"
+                android:layout_weight="0.89" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:layout_below="@+id/txtBairro"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/txtPreco"
-        android:hint="Preço" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/txtRua"
+                android:hint="Endereço" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/txtBairro"
+                android:hint="Bairro" />
+
+            <EditText
+                android:layout_width="128dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/txtNum"
+                android:hint="Numero" />
+
+            <EditText
+                android:layout_width="204dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPostalAddress"
+                android:ems="10"
+                android:id="@+id/txtCEP"
+                android:hint="CEP" />
+
+            <EditText
+                android:layout_width="231dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/txtCidade"
+                android:hint="Cidade" />
+
+            <EditText
+                android:layout_width="186dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/txtEstado"
+                android:hint="Estado" />
+
+            <EditText
+                android:layout_width="152dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:layout_below="@+id/txtBairro"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/txtPreco"
+                android:hint="Preço" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:layout_below="@+id/txtBairro"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/txtComp"
+                android:hint="Comprimento" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:layout_below="@+id/txtBairro"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/txtLarg"
+                android:hint="Largura" />
+
+            <CheckBox
+                android:text="Compartilhado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/chkComp" />
+
+            <Button
+            android:text="Publicar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="66dp"
+            android:id="@+id/btnPublicar"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
