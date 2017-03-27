@@ -177,4 +177,8 @@ public class Quarto implements Serializable{
     public void setWidth(String width) {
         this.width = width;
     }
+
+    public String toString(){
+        return "Rua das Laranjas - Brotas - Salvador";
+    }
 }

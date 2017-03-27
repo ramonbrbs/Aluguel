@@ -62,7 +62,7 @@ public class VisualizacaoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_visualizacao);
 
         index = 0;
-        carregarQuarto(index);
+        //carregarQuarto(index);
         Button btnProx = (Button) findViewById(R.id.detalheProx);
         btnProx.setOnClickListener(new View.OnClickListener() {
 

@@ -12,18 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LoginActivity">
+
            </activity>
-        <activity android:name=".CadastroActivity" />
-        <activity android:name=".ListagemActivity" />
+        <activity android:name=".CadastroActivity" >
+
+        </activity>
+        <activity android:name=".ListagemActivity" >
+
+        </activity>
         <activity android:name=".NovoQuartoActivity">
+
+
+        </activity>
+        <activity android:name=".VisualizacaoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".VisualizacaoActivity"></activity>
     </application>
 
 </manifest>
