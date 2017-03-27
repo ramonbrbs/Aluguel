@@ -23,7 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:weightSum="1">
+            android:weightSum="1"
+            android:id="@+id/novoAnuncioLinear">
 
             <TextView
                 android:text="Novo Anúncio"
@@ -42,6 +43,11 @@
                 app:srcCompat="@android:drawable/ic_menu_help"
                 android:id="@+id/imgNovo"
                 android:layout_weight="0.89" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="#000000" />
 
             <EditText
                 android:layout_width="match_parent"

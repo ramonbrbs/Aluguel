@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -18,9 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import br.ufba.dcc.aluguel.Business.InterestRN;
 import br.ufba.dcc.aluguel.Business.QuartoRN;
 import br.ufba.dcc.aluguel.Business.UsuarioRN;
 import br.ufba.dcc.aluguel.Model.Endereco;
+import br.ufba.dcc.aluguel.Model.Interest;
+import br.ufba.dcc.aluguel.Model.InterestType;
 import br.ufba.dcc.aluguel.Model.Quarto;
 import br.ufba.dcc.aluguel.Model.Usuario;
 
@@ -57,17 +62,46 @@ public class NovoQuartoActivity extends AppCompatActivity {
         }
     }
     private Quarto qua;
+    List<CheckBox> checks;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_novo_quarto);
 
         ImageView img = (ImageView)findViewById(R.id.imgNovo);
+        LinearLayout layout = (LinearLayout)findViewById(R.id.novoAnuncioLinear);
 
-        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-        startActivityForResult(intent, 0);
+        List<InterestType> tipos = new ArrayList<InterestType>();
+        List<Interest> interesses = new ArrayList<Interest>();
+        checks = new ArrayList<CheckBox>();
+        //tipos = InterestRN.tipos();
+
+        for(InterestType t: tipos){
+
+            TextView text = new TextView(this);
+            text.setText(t.getName() + ":");
+            layout.addView(text);
+            t.setInterests(InterestRN.interessesPorTipo(t));
+            for(Interest i : t.getInterests()){
+                CheckBox c = new CheckBox(this);
+                c.setText(i.name);
+                c.setId(i.id);
+                layout.addView(c);
+                checks.add(c);
+            }
+        }
+
+
+
         qua = new Quarto();
         Button btnPub = (Button) findViewById(R.id.btnPublicar);
+        ((ImageView)findViewById(R.id.imgNovo)).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                startActivityForResult(intent, 0);
+            }
+        } );
         btnPub.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -87,6 +121,13 @@ public class NovoQuartoActivity extends AppCompatActivity {
                 qua.setZipcode(((EditText) findViewById(R.id.txtCEP)).toString());
                 qua.setStreet(((EditText) findViewById(R.id.txtRua)).toString());
                 qua.setNumber(Integer.parseInt(((EditText) findViewById(R.id.txtNum)).toString()));
+                List<Integer> interesses = new ArrayList<Integer>();
+                for (CheckBox c : checks){
+                    if(c.isChecked()){
+                        interesses.add(c.getId());
+                    }
+                }
+                qua.setInterestsid(interesses);
 
                 try {
                     if (QuartoRN.publicaQuarto(qua)){
