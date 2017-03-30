@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
 import java.io.IOException;
@@ -33,6 +35,17 @@ public class CadastroActivity extends AppCompatActivity {
         RadioButton rdOutro = (RadioButton) findViewById(R.id.rdOutro);
         final CheckBox chkBebe = (CheckBox) findViewById(R.id.chkBebe);
         final CheckBox chkFuma = (CheckBox) findViewById(R.id.chkFuma);
+
+        LinearLayout li  = new LinearLayout(this);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.leftMargin = 123;
+
+        CheckBox cb;
+        for(int i = 0; i < 4; i++) {
+            cb = new CheckBox(this);
+            cb.setText("Amor");
+            li.addView(cb, params);
+        }
 
         btnEnviar.setOnClickListener(new View.OnClickListener() {
 

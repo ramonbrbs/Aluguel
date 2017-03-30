@@ -18,7 +18,7 @@ import br.ufba.dcc.aluguel.Model.Quarto;
 public class QuartoWS {
 
     public static List<Quarto> listaQuartos() throws  ExecutionException, InterruptedException {
-        WebRequest request = new WebRequest("http://www.mocky.io/v2/58b95a3b0f00003a0df09c88","GET","");
+        WebRequest request = new WebRequest("http://10.0.2.2/roomy/src/public/bedrooms","GET","");
         String retorno = request.execute("").get();
         Gson gson = new Gson();
         return gson.fromJson(retorno, new TypeToken<List<Quarto>>(){}.getType());
