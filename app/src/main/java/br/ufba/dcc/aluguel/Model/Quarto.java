@@ -179,6 +179,6 @@ public class Quarto implements Serializable{
     }
 
     public String toString(){
-        return "Rua das Laranjas - Brotas - Salvador";
+        return this.street +" - " + this.neighborhood +" - " + this.city;
     }
 }

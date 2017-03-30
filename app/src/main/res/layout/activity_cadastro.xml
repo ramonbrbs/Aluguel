@@ -42,7 +42,7 @@
                 android:layout_below="@+id/textView2"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="37dp"
+                android:layout_marginTop="50dp"
                 android:id="@+id/txtNome"
                 android:hint="Nome" />
 
@@ -88,37 +88,65 @@
                 android:inputType="date"
                 android:ems="10"
                 android:id="@+id/txtNasc"
-                android:hint="Nascimento" />
-
-            <RadioButton
-                android:text="Masculino"
+                android:hint="Nascimento"
+                android:layout_marginTop="17dp"/>
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/rdMasculino" />
+                android:text="Sexo"
+                android:textSize="23dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="2dp"/>
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+                <RadioButton
+                    android:text="Masculino"
+                    android:layout_marginRight="35dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rdMasculino" />
+                <RadioButton
+                    android:text="Feminino"
+                    android:layout_marginRight="35dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rdFem" />
+                <RadioButton
+                    android:text="Outros"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rdOutro" />
+            </RadioGroup>
 
-            <RadioButton
-                android:text="Feminino"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/rdFem" />
-
-            <RadioButton
-                android:text="Outros"
+                android:textSize="23dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="Hábitos"/>
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/rdOutro" />
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+                <CheckBox
+                    android:text="Bebe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/chkBebe"
+                    android:layout_marginRight="60dp"/>
 
-            <CheckBox
-                android:text="Bebe"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/chkBebe" />
+                <CheckBox
+                    android:text="Fuma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/chkFuma" />
 
-            <CheckBox
-                android:text="Fuma"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/chkFuma" />
+            </LinearLayout>
 
             <Button
                 android:text="Cadastrar"
