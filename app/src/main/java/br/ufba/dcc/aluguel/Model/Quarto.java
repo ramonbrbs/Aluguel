@@ -25,15 +25,6 @@ public class Quarto implements Serializable{
     private int number;
     private String complement;
 
-    public List<Integer> getInterestsid() {
-        return interestsid;
-    }
-
-    public void setInterestsid(List<Integer> interestsid) {
-        this.interestsid = interestsid;
-    }
-
-    private List<Integer> interestsid;
 
 
     public byte[] getPhoto() {

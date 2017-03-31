@@ -17,14 +17,14 @@ import br.ufba.dcc.aluguel.Model.Quarto;
 
 public class InterestsWS {
     public static List<InterestType> tipos() throws ExecutionException, InterruptedException {
-        WebRequest request = new WebRequest(Constantes.enderecoAPI + "/interesttype","GET","");
+        WebRequest request = new WebRequest(Constantes.enderecoAPI + "/interesttypes","GET","");
         String retorno = request.execute("").get();
         Gson gson = new Gson();
         return gson.fromJson(retorno, new TypeToken<List<InterestType>>(){}.getType());
     }
 
     public static List<Interest> interessesPorTipo(InterestType type) throws ExecutionException, InterruptedException {
-        WebRequest request = new WebRequest(Constantes.enderecoAPI + "/interesbytype/" + type.getId(),"GET","");
+        WebRequest request = new WebRequest(Constantes.enderecoAPI + "/interestsbytype/ " + type.getId(),"GET","");
         String retorno = request.execute("").get();
         Gson gson = new Gson();
         return gson.fromJson(retorno, new TypeToken<List<Interest>>(){}.getType());

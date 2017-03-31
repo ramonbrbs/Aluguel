@@ -28,7 +28,8 @@
             android:textAppearance="@android:style/TextAppearance.Large"
             android:textSize="30sp"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:fontFamily="casual"/>
         <Button
             android:id="@+id/publicar"
             android:layout_width="56dp"

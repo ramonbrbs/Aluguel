@@ -38,9 +38,19 @@ public class LoginActivity extends AppCompatActivity {
         //String j = quartos.toString();
 
         Button BtnEntrar = (Button) findViewById(R.id.brnLogin);
+        Button BtnRegistrar = (Button) findViewById(R.id.btnRegister);
         final EditText EdtEmail = (EditText) findViewById(R.id.edtEmail);
         final EditText EdtSenha = (EditText) findViewById(R.id.edtSenha);
 
+
+        BtnRegistrar.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this,CadastroActivity.class);
+                startActivity(intent);
+            }
+        });
         BtnEntrar.setOnClickListener(new View.OnClickListener() {
 
             @Override

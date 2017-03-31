@@ -5,5 +5,5 @@ package br.ufba.dcc.aluguel.Model;
  */
 
 public class Constantes {
-    public static final String enderecoAPI = "http://teste.com/";
+    public static final String enderecoAPI = "http://10.0.2.2/roomy/src/public";
 }
