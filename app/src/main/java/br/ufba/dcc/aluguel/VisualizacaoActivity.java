@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
 import br.ufba.dcc.aluguel.Business.EnderecoRN;
@@ -28,9 +30,8 @@ public class VisualizacaoActivity extends AppCompatActivity {
     private void carregarQuarto(int id){
         Quarto quarto = null;
         try {
-            quarto = QuartoRN.listaQuartos().get(id);
-        } catch (IOException e) {
-            e.printStackTrace();
+            String idQuarto = lista.get(id);
+            quarto = QuartoRN.detalhe(Integer.parseInt(idQuarto));
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -54,26 +55,25 @@ public class VisualizacaoActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
+    ArrayList<String> lista;
     private int index;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visualizacao);
-
+        lista = (ArrayList<String>)getIntent().getSerializableExtra("LISTA");
         index = 0;
-        //carregarQuarto(index);
+        carregarQuarto(index);
         Button btnProx = (Button) findViewById(R.id.detalheProx);
         btnProx.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 VisualizacaoActivity.this.index++;
-                Info i = InfoRN.get(VisualizacaoActivity.this);
 
-                VisualizacaoActivity.this.carregarQuarto(i.getIndex() + 1);
-                i.setIndex(i.getIndex() + 1);
-                InfoRN.insere(VisualizacaoActivity.this, i);
+
+                VisualizacaoActivity.this.carregarQuarto(VisualizacaoActivity.this.index);
+                VisualizacaoActivity.this.index ++;
             }
         });
     }

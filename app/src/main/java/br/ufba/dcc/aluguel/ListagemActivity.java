@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -29,7 +30,7 @@ public class ListagemActivity extends AppCompatActivity {
         Button btnPublicar = (Button) findViewById(R.id.publicar);
 
         try {
-            List<Quarto> quartos = QuartoRN.listaQuartos();
+            List<Quarto> quartos = new ArrayList<Quarto>();
             final ListView listaQuartos = (ListView) findViewById(R.id.lstQuartos);
             ArrayAdapter<Quarto> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, quartos);
             listaQuartos.setAdapter(adapter);
@@ -55,11 +56,8 @@ public class ListagemActivity extends AppCompatActivity {
                 }
             });
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

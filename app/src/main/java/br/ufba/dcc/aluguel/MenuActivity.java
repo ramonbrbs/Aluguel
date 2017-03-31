@@ -6,7 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+
 import br.ufba.dcc.aluguel.Business.InfoRN;
+import br.ufba.dcc.aluguel.Business.QuartoRN;
 import br.ufba.dcc.aluguel.Model.Info;
 
 public class MenuActivity extends AppCompatActivity {
@@ -20,7 +28,18 @@ public class MenuActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this,ListagemActivity.class);
+                ArrayList<String> lista = new ArrayList<String>();
+                try {
+                    lista = QuartoRN.listaQuartos(InfoRN.get(MenuActivity.this).getHash());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Intent intent = new Intent(MenuActivity.this,VisualizacaoActivity.class);
+                intent.putExtra("LISTA", lista);
                 startActivity(intent);
             }
         });
