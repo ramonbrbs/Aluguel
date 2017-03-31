@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import br.ufba.dcc.aluguel.Business.InfoRN;
 import br.ufba.dcc.aluguel.Business.InterestRN;
 import br.ufba.dcc.aluguel.Business.QuartoRN;
 import br.ufba.dcc.aluguel.Business.UsuarioRN;
@@ -87,21 +88,23 @@ public class NovoQuartoActivity extends AppCompatActivity {
 
 
                 qua.setFurnitures(new ArrayList<String>());
-                qua.setHeight(((EditText) findViewById(R.id.txtComp)).toString());
-                qua.setWidth(((EditText) findViewById(R.id.txtLarg)).toString());
+                qua.setHeight(((EditText) findViewById(R.id.txtComp)).getText().toString());
+                qua.setWidth(((EditText) findViewById(R.id.txtLarg)).getText().toString());
+                qua.setPrice(((EditText) findViewById(R.id.txtPreco)).getText().toString());
                 if (((CheckBox) findViewById(R.id.chkComp)).isChecked()){
                     qua.setShare(true);
                 }else{
                     qua.setShare(false);
                 }
-                qua.setCity(((EditText) findViewById(R.id.txtCidade)).toString());
-                qua.setState(((EditText) findViewById(R.id.txtEstado)).toString());
-                qua.setZipcode(((EditText) findViewById(R.id.txtCEP)).toString());
-                qua.setStreet(((EditText) findViewById(R.id.txtRua)).toString());
-                qua.setNumber(Integer.parseInt(((EditText) findViewById(R.id.txtNum)).toString()));
+                qua.setCity(((EditText) findViewById(R.id.txtCidade)).getText().toString());
+                qua.setState(((EditText) findViewById(R.id.txtEstado)).getText().toString());
+                qua.setZipcode(((EditText) findViewById(R.id.txtCEP)).getText().toString());
+                qua.setStreet(((EditText) findViewById(R.id.txtRua)).getText().toString());
+                qua.setNumber(Integer.parseInt(((EditText) findViewById(R.id.txtNum)).getText().toString()));
 
                 try {
-                    if (QuartoRN.publicaQuarto(qua)){
+
+                    if (QuartoRN.publicaQuarto(qua, InfoRN.get(NovoQuartoActivity.this).getHash())){
                         Intent intent = new Intent(NovoQuartoActivity.this,ListagemActivity.class);
                         startActivity(intent);
                     }

@@ -10,21 +10,29 @@ import java.util.List;
 public class Usuario {
     private int id;
     private String name;
+    private String password;
     private String email;
     private String phonenumber;
     private String birthdate;
     private boolean drink;
     private boolean smoke;
-    private char sex;
-    private List<Integer> interestsid;
+    private String gender;
+    private List<Integer> interests;
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public List<Integer> getInterestsid() {
-        return interestsid;
+        return interests;
     }
 
     public void setInterestsid(List<Integer> interestsid) {
-        this.interestsid = interestsid;
+        this.interests = interestsid;
     }
 
     public String getBirthdate() {
@@ -75,12 +83,12 @@ public class Usuario {
         this.phonenumber = phonenumber;
     }
 
-    public char getSex() {
-        return sex;
+    public String getGender() {
+        return gender;
     }
 
-    public void setSex(char sex) {
-        this.sex = sex;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public boolean isSmoke() {

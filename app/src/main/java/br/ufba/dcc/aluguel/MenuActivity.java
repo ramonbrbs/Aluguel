@@ -39,6 +39,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuActivity.this,LoginActivity.class);
+                intent.putExtra("SAIR","SAIR");
                 startActivity(intent);
             }
         });

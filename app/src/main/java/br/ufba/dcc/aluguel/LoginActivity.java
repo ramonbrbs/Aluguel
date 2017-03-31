@@ -15,6 +15,7 @@ import java.util.concurrent.ExecutionException;
 
 import br.ufba.dcc.aluguel.Business.InfoRN;
 import br.ufba.dcc.aluguel.Business.UsuarioRN;
+import br.ufba.dcc.aluguel.DAO.InfoDAO;
 import br.ufba.dcc.aluguel.Model.Info;
 import br.ufba.dcc.aluguel.Model.Quarto;
 import br.ufba.dcc.aluguel.Model.Usuario;
@@ -26,16 +27,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        try {
-            List<Quarto> quartos = QuartoWS.listaQuartos();
-            String teste = "aaa";
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
+        Info info = InfoRN.get(this);
+        String sair = getIntent().getStringExtra("SAIR");
+        if(info.getId() != 0 &&   sair == null){
+            Intent intent = new Intent(LoginActivity.this,MenuActivity.class);
+            startActivity(intent);
         }
-        //String j = quartos.toString();
 
         Button BtnEntrar = (Button) findViewById(R.id.brnLogin);
         Button BtnRegistrar = (Button) findViewById(R.id.btnRegister);
@@ -57,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Usuario u = new Usuario();
                 u.setEmail(EdtEmail.getText().toString());
+                u.setPassword(EdtSenha.getText().toString());
                 //u.setP(EdtSenha.getText().toString());
                 try {
                     String hash = UsuarioRN.login(u);
@@ -65,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
                         i.setHash(hash);
                         i.setIndex(0);
                         InfoRN.insere(LoginActivity.this, i);
-                        Intent intent = new Intent(LoginActivity.this,ListagemActivity.class);
+                        Intent intent = new Intent(LoginActivity.this,MenuActivity.class);
                         startActivity(intent);
                     }
                 } catch (IOException e) {

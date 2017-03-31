@@ -24,10 +24,10 @@ public class QuartoWS {
         return gson.fromJson(retorno, new TypeToken<List<Quarto>>(){}.getType());
     }
 
-    public static boolean publicaQuarto(Quarto quarto) throws ExecutionException, InterruptedException {
+    public static boolean publicaQuarto(Quarto quarto, String id) throws ExecutionException, InterruptedException {
         Gson toJS = new Gson();
         String quartoJSON = toJS.toJson(quarto);
-        WebRequest request = new WebRequest(Constantes.enderecoAPI + "/bedroom/new","POST",quartoJSON);
+        WebRequest request = new WebRequest(Constantes.enderecoAPI + "/bedroom/new/"+ id,"POST",quartoJSON);
         String retorno = request.execute("").get();
         Gson gson = new Gson();
         return gson.fromJson(retorno, Boolean.class);
