@@ -1,6 +1,7 @@
 package br.ufba.dcc.aluguel;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,31 +30,42 @@ public class VisualizacaoActivity extends AppCompatActivity {
 
 
     private void carregarQuarto(int id){
-        Quarto quarto = null;
-        try {
-            String idQuarto = lista.get(id);
-            quarto = QuartoRN.detalhe(Integer.parseInt(idQuarto));
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        try {
-
-            if(quarto != null){
-                Usuario usuario = UsuarioRN.detalhe(quarto.getLandlord_id());
-                ((ImageView) findViewById(R.id.imageView)).setImageBitmap(BitmapFactory.decodeByteArray(quarto.getPhoto(),0,quarto.getPhoto().length));
-                ((TextView)findViewById(R.id.detalheDono)).setText(usuario.getName());
-                ((TextView)findViewById(R.id.detalheEndereco)).setText(quarto.getStreet() +"," + quarto.getNeighborhood() + " - " + quarto.getCity());
-                ((TextView)findViewById(R.id.detalheTel)).setText(quarto.getAddress_id());
+        if(lista.size() > id) {
+            Quarto quarto = null;
+            try {
+                String idQuarto = lista.get(id);
+                quarto = QuartoRN.detalhe(Integer.parseInt(idQuarto));
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+            try {
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+                if (quarto != null) {
+                    Usuario usuario = UsuarioRN.detalhe(quarto.getLandlord_id());
+                    ImageView image = (ImageView) findViewById(R.id.imageView);
+                    byte[] photo = quarto.getPhoto();
+                    BitmapFactory.Options bmo = new BitmapFactory.Options();
+                    bmo.inPreferredConfig = Bitmap.Config.ARGB_8888;
+                    Bitmap bMap = BitmapFactory.decodeByteArray(photo, 0, photo.length, bmo);
+                    image.setImageBitmap(bMap);
+                    //((ImageView) findViewById(R.id.imageView)).setImageBitmap(BitmapFactory.decodeByteArray(quarto.getPhoto(),0,quarto.getPhoto().length));
+                    ((TextView) findViewById(R.id.detalheDono)).setText("Anunciado por " + usuario.getName());
+                    ((TextView) findViewById(R.id.detalheEndereco)).setText(quarto.getStreet() + "," + quarto.getNeighborhood() + " - " + quarto.getCity());
+                    ((TextView) findViewById(R.id.detalheTel)).setText(usuario.getPhonenumber());
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }else{
+            Toast.makeText(this, "Não há mais quartos com seu perfil. :(",
+                    Toast.LENGTH_SHORT).show();
         }
     }
     ArrayList<String> lista;

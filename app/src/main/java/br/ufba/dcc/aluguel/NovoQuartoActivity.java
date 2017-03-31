@@ -42,6 +42,18 @@ public class NovoQuartoActivity extends AppCompatActivity {
         }
     }
 
+    public static byte[] bitmapToByteArray(Bitmap bm) {
+        // Create the buffer with the correct size
+        int iBytes = bm.getWidth() * bm.getHeight() * 4;
+        ByteBuffer buffer = ByteBuffer.allocate(iBytes);
+
+        // Log.e("DBG", buffer.remaining()+""); -- Returns a correct number based on dimensions
+        // Copy to buffer and then into byte array
+        bm.copyPixelsToBuffer(buffer);
+        // Log.e("DBG", buffer.remaining()+""); -- Returns 0
+        return buffer.array();
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if ( resultCode == RESULT_OK) {
@@ -57,7 +69,7 @@ public class NovoQuartoActivity extends AppCompatActivity {
             imageBitmap.copyPixelsToBuffer(buffer); //Move the byte data to the buffer
 
             byte[] photo = buffer.array(); //Get the underlying array containing the data.
-            qua.setPhoto(photo);
+            qua.setPhoto(bitmapToByteArray(imageBitmap));
             ImageView img = (ImageView)findViewById(R.id.imgNovo);
             img.setImageBitmap(imageBitmap);
         }
