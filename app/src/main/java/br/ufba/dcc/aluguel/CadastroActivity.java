@@ -3,6 +3,7 @@ package br.ufba.dcc.aluguel;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -10,19 +11,31 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import br.ufba.dcc.aluguel.Business.InterestRN;
 import br.ufba.dcc.aluguel.Business.UsuarioRN;
+import br.ufba.dcc.aluguel.Model.Interest;
+import br.ufba.dcc.aluguel.Model.InterestType;
 import br.ufba.dcc.aluguel.Model.Usuario;
 
 public class CadastroActivity extends AppCompatActivity {
 
+    List<CheckBox> checks;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
+
+
 
         Button btnEnviar = (Button) findViewById(R.id.btnCadastrar);
         final EditText txtNome = (EditText) findViewById(R.id.txtNome);
@@ -36,16 +49,46 @@ public class CadastroActivity extends AppCompatActivity {
         final CheckBox chkBebe = (CheckBox) findViewById(R.id.chkBebe);
         final CheckBox chkFuma = (CheckBox) findViewById(R.id.chkFuma);
 
-        LinearLayout li  = new LinearLayout(this);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.leftMargin = 123;
-
-        CheckBox cb;
-        for(int i = 0; i < 4; i++) {
-            cb = new CheckBox(this);
-            cb.setText("Amor");
-            li.addView(cb, params);
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.novoUsuario);
+        List<InterestType> tipos = new ArrayList<InterestType>();
+        List<Interest> interesses = new ArrayList<Interest>();
+        checks = new ArrayList<CheckBox>();
+        try {
+            tipos = InterestRN.tipos();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+
+        TextView label = new TextView(this);
+        label.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
+        linearLayout.addView(label, 9);
+        for(InterestType t: tipos){
+
+            TextView text = new TextView(this);
+            text.setText(t.getName() + ":");
+            linearLayout.addView(text, 10);
+            try {
+                t.setInterests(InterestRN.interessesPorTipo(t));
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            for(Interest i : t.getInterests()){
+                CheckBox c = new CheckBox(this);
+                c.setText(i.name);
+                c.setId(i.id);
+                linearLayout.addView(c, 11);
+                checks.add(c);
+            }
+        }
+
 
         btnEnviar.setOnClickListener(new View.OnClickListener() {
 
@@ -74,7 +117,13 @@ public class CadastroActivity extends AppCompatActivity {
                 }else{
                     u.setSmoke(false);
                 }
-
+                List<Integer> interesses = new ArrayList<Integer>();
+                for (CheckBox c : checks){
+                    if(c.isChecked()){
+                        interesses.add(c.getId());
+                    }
+                }
+                u.setInterestsid(interesses);
                 try {
                     if (UsuarioRN.cadastrar(u) != ""){ //verifica se retorna um token
                         Intent intent = new Intent(CadastroActivity.this,LoginActivity.class);

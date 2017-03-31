@@ -1,6 +1,7 @@
 package br.ufba.dcc.aluguel.Model;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by ASUS on 03/03/2017.
@@ -15,7 +16,16 @@ public class Usuario {
     private boolean drink;
     private boolean smoke;
     private char sex;
+    private List<Integer> interestsid;
 
+
+    public List<Integer> getInterestsid() {
+        return interestsid;
+    }
+
+    public void setInterestsid(List<Integer> interestsid) {
+        this.interestsid = interestsid;
+    }
 
     public String getBirthdate() {
         return birthdate;

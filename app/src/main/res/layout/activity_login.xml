@@ -10,50 +10,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="br.ufba.dcc.aluguel.LoginActivity">
 
-    <TextView
-        android:text="Login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:textAppearance="@android:style/TextAppearance.Large"
-        android:textSize="30sp"
-        android:layout_alignRight="@+id/brnLogin"
-        android:layout_alignEnd="@+id/brnLogin"
-        android:layout_below="@+id/textView5" />
 
-    <Button
-        android:text="Entrar"
-        android:layout_width="wrap_content"
+    <ImageView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="62dp"
-        android:id="@+id/brnLogin"
-        android:layout_below="@+id/edtSenha"
-        android:layout_centerHorizontal="true"
-        android:elevation="4dp"
-        android:layout_alignBottom="@+id/button2"
-        android:background="@color/colorPrimary"
-        android:textColor="?android:attr/textColorPrimaryInverse" />
-
-    <Button
-        android:text="Cadastrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
-        android:id="@+id/button3"
-        android:layout_below="@+id/brnLogin"
-        android:layout_centerHorizontal="true"
-        android:background="?attr/colorButtonNormal" />
-
-    <TextView
-        android:text="Roomy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/textView5"
-        android:textSize="50sp"
-        android:textStyle="normal|bold"
-        android:fontFamily="sans-serif" />
+        android:src="@drawable/logo"
+        android:id="@+id/logo"
+        android:layout_marginTop="40dp"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -64,7 +27,8 @@
         android:hint="E-mail"
         android:layout_above="@+id/edtSenha"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="28dp" />
+        android:layout_marginBottom="28dp"
+        android:fontFamily="sans-serif-smallcaps"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -75,6 +39,38 @@
         android:hint="Senha"
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/edtEmail"
-        android:layout_alignStart="@+id/edtEmail" />
+        android:layout_alignStart="@+id/edtEmail"
+        android:fontFamily="sans-serif-smallcaps"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/edtSenha"
+        android:layout_marginTop="40dp"
+        android:gravity="center">
+
+        <Button
+            android:text="Entrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/brnLogin"
+            android:elevation="4dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/colorPrimary"
+            android:textColor="?android:attr/textColorPrimaryInverse"
+            android:fontFamily="sans-serif-smallcaps"
+            />
+
+        <Button
+            android:text="Cadastrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/btnRegister"
+            android:background="?attr/colorButtonNormal"
+            android:fontFamily="sans-serif-smallcaps"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

@@ -10,18 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="br.ufba.dcc.aluguel.CadastroActivity">
 
-    <TextView
-        android:text="Cadastro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
-        android:id="@+id/textView2"
-        android:textAppearance="@android:style/TextAppearance.Large"
-        android:textSize="30sp" />
-
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -32,7 +20,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:id="@+id/novoUsuario">
+
+            <TextView
+                android:text="Cadastro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:id="@+id/textView2"
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:textSize="60dp"
+                android:fontFamily="casual"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -94,7 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Sexo"
-                android:textSize="23dp"
+                android:textSize="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="2dp"/>
             <RadioGroup
@@ -104,13 +104,13 @@
                 android:layout_marginBottom="10dp">
                 <RadioButton
                     android:text="Masculino"
-                    android:layout_marginRight="35dp"
+                    android:layout_marginRight="13dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/rdMasculino" />
                 <RadioButton
                     android:text="Feminino"
-                    android:layout_marginRight="35dp"
+                    android:layout_marginRight="13dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/rdFem" />
@@ -124,7 +124,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="23dp"
+                android:textSize="14dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
                 android:text="Hábitos"/>

@@ -62,7 +62,7 @@ public class NovoQuartoActivity extends AppCompatActivity {
         }
     }
     private Quarto qua;
-    List<CheckBox> checks;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,28 +70,6 @@ public class NovoQuartoActivity extends AppCompatActivity {
 
         ImageView img = (ImageView)findViewById(R.id.imgNovo);
         LinearLayout layout = (LinearLayout)findViewById(R.id.novoAnuncioLinear);
-
-        List<InterestType> tipos = new ArrayList<InterestType>();
-        List<Interest> interesses = new ArrayList<Interest>();
-        checks = new ArrayList<CheckBox>();
-        //tipos = InterestRN.tipos();
-
-        for(InterestType t: tipos){
-
-            TextView text = new TextView(this);
-            text.setText(t.getName() + ":");
-            layout.addView(text);
-            t.setInterests(InterestRN.interessesPorTipo(t));
-            for(Interest i : t.getInterests()){
-                CheckBox c = new CheckBox(this);
-                c.setText(i.name);
-                c.setId(i.id);
-                layout.addView(c);
-                checks.add(c);
-            }
-        }
-
-
 
         qua = new Quarto();
         Button btnPub = (Button) findViewById(R.id.btnPublicar);
@@ -121,13 +99,6 @@ public class NovoQuartoActivity extends AppCompatActivity {
                 qua.setZipcode(((EditText) findViewById(R.id.txtCEP)).toString());
                 qua.setStreet(((EditText) findViewById(R.id.txtRua)).toString());
                 qua.setNumber(Integer.parseInt(((EditText) findViewById(R.id.txtNum)).toString()));
-                List<Integer> interesses = new ArrayList<Integer>();
-                for (CheckBox c : checks){
-                    if(c.isChecked()){
-                        interesses.add(c.getId());
-                    }
-                }
-                qua.setInterestsid(interesses);
 
                 try {
                     if (QuartoRN.publicaQuarto(qua)){
