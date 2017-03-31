@@ -1,6 +1,9 @@
 package br.ufba.dcc.aluguel.Webservice;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -17,11 +20,11 @@ import br.ufba.dcc.aluguel.Model.Quarto;
 
 public class QuartoWS {
 
-    public static List<Quarto> listaQuartos() throws  ExecutionException, InterruptedException {
-        WebRequest request = new WebRequest(Constantes.enderecoAPI + "/bedrooms","GET","");
+    public static ArrayList<String> listaQuartos(String id) throws  ExecutionException, InterruptedException {
+        WebRequest request = new WebRequest(Constantes.enderecoAPI + "/bedroomsid/"+id,"GET","");
         String retorno = request.execute("").get();
         Gson gson = new Gson();
-        return gson.fromJson(retorno, new TypeToken<List<Quarto>>(){}.getType());
+        return gson.fromJson(retorno, new TypeToken<ArrayList<String>>(){}.getType());
     }
 
     public static boolean publicaQuarto(Quarto quarto, String id) throws ExecutionException, InterruptedException {
@@ -47,7 +50,7 @@ public class QuartoWS {
         Gson toJS = new Gson();
         String idJSON = toJS.toJson(id);
 
-        WebRequest request = new WebRequest("http://demo0075251.mockable.io/detalhe","GET",idJSON);
+        WebRequest request = new WebRequest(Constantes.enderecoAPI+ "/bedroom/" + id,"GET",idJSON);
         String retorno = request.execute("").get();
         Gson gson = new Gson();
         return gson.fromJson(retorno, Quarto.class);

@@ -26,15 +26,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                app:srcCompat="@android:drawable/ic_delete"
                 android:id="@+id/imageView" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/detalheEndereco"
-                android:textSize="25sp"
-                android:text="Rua do Alto" />
 
             <TextView
                 android:text="Cajazeiras"
@@ -42,6 +34,13 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/detalheDono"
                 android:textSize="25sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/detalheEndereco"
+                android:textSize="25sp"
+                android:text="Rua do Alto" />
 
             <TextView
                 android:text="Tel: (71) 95895989"

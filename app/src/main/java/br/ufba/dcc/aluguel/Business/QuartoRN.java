@@ -1,6 +1,8 @@
 package br.ufba.dcc.aluguel.Business;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -12,8 +14,8 @@ import br.ufba.dcc.aluguel.Webservice.QuartoWS;
  */
 
 public class QuartoRN {
-    public static List<Quarto> listaQuartos() throws IOException, ExecutionException, InterruptedException {
-        return QuartoWS.listaQuartos();
+    public static ArrayList<String> listaQuartos(String id) throws IOException, ExecutionException, InterruptedException {
+        return QuartoWS.listaQuartos(id);
     }
 
     public static boolean publicaQuarto(Quarto quarto, String id) throws ExecutionException, InterruptedException {
