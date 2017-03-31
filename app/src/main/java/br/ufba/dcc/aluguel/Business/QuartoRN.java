@@ -16,8 +16,8 @@ public class QuartoRN {
         return QuartoWS.listaQuartos();
     }
 
-    public static boolean publicaQuarto(Quarto quarto) throws ExecutionException, InterruptedException {
-        return QuartoWS.publicaQuarto(quarto);
+    public static boolean publicaQuarto(Quarto quarto, String id) throws ExecutionException, InterruptedException {
+        return QuartoWS.publicaQuarto(quarto, id);
     }
 
     public static boolean alteraQuarto(Quarto quarto) throws ExecutionException, InterruptedException {

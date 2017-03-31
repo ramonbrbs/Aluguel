@@ -99,13 +99,13 @@ public class CadastroActivity extends AppCompatActivity {
                 u.setPhonenumber(txtTelefone.getText().toString());
                 u.setBirthdate(txtNasc.getText().toString());
                 if(rdkFem.isChecked()) {
-                    u.setGender('F');
+                    u.setGender("F");
                 } else if (rdkMasc.isChecked()) {
-                    u.setGender('M');
+                    u.setGender("M");
                 } else {
-                    u.setGender('O');
+                    u.setGender("O");
                 }
-                u.setGender((char) radioGroup.getCheckedRadioButtonId());
+
                 if(chkBebe.isChecked()){
                     u.setDrink(true);
                 }else{

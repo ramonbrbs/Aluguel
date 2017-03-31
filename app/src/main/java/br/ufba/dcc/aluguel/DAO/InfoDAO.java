@@ -19,7 +19,7 @@ public class InfoDAO extends SQLiteOpenHelper{
 
     private Context contexto;
     public InfoDAO(Context context){
-        super(context, "bd", null, 3);
+        super(context, "bd", null, 4);
         this.contexto = context;
     }
 
@@ -29,7 +29,7 @@ public class InfoDAO extends SQLiteOpenHelper{
         String create_table = "CREATE TABLE Info(" +
                 "   Id INTEGER PRIMARY KEY," +
                 "   Hash           VARCHAR(512)    NOT NULL," +
-                "   'Index'         INTEGER" +
+                "   Indexo         INTEGER" +
                 ");";
         sqLiteDatabase.execSQL(create_table);
     }
@@ -48,9 +48,10 @@ public class InfoDAO extends SQLiteOpenHelper{
         ContentValues dados = new ContentValues();
         dados.put("Id", 1);
         dados.put("Hash", info.getHash());
-        dados.put("Index", info.getIndex());
-        db.insert("Info", null, dados);
-        //db.close();
+        dados.put("Indexo", info.getIndex());
+        db.insertOrThrow("Info", null, dados);
+
+        db.close();
     }
 
 
@@ -61,7 +62,7 @@ public class InfoDAO extends SQLiteOpenHelper{
         ContentValues dados = new ContentValues();
         dados.put("Id", 1);
         dados.put("Hash", info.getHash());
-        dados.put("Index", info.getIndex());
+        dados.put("Indexo", info.getIndex());
         db.update("Info", dados, "Id = 1", null);
         //db.close();
     }
@@ -71,7 +72,6 @@ public class InfoDAO extends SQLiteOpenHelper{
     public Info busca() {
 
         SQLiteDatabase db = getWritableDatabase();
-
         Cursor c = db.rawQuery("select * from Info",null);
 
         Info info = new Info();
@@ -80,7 +80,7 @@ public class InfoDAO extends SQLiteOpenHelper{
         while (c.moveToNext()) {
             info.setId(c.getInt(c.getColumnIndex("Id")));
             info.setHash(c.getString(c.getColumnIndex("Hash")));
-            info.setIndex(c.getInt(c.getColumnIndex("Index")));
+            info.setIndex(c.getInt(c.getColumnIndex("Indexo")));
             return info;
 
         }

@@ -23,11 +23,11 @@ public class UsuarioWS {
         Gson toJS = new Gson();
         String usuarioJSON = toJS.toJson(usuario);
 
-        WebRequest request = new WebRequest(Constantes.enderecoAPI + "/user/new","POST",usuarioJSON);
+        WebRequest request = new WebRequest(Constantes.enderecoAPI + "/user/login","POST",usuarioJSON);
         String retorno = request.execute("").get();
         Gson gson = new Gson();
-        Map<String,String> arrayRetorno = gson.fromJson(retorno, new TypeToken<Map<String,String>>(){}.getType());
-        return arrayRetorno.get("token");
+        return gson.fromJson(retorno, String.class);
+
     }
 
     public static String cadastrar(Usuario usuario) throws IOException, ExecutionException, InterruptedException {

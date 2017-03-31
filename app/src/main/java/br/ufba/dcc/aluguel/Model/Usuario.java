@@ -16,7 +16,7 @@ public class Usuario {
     private String birthdate;
     private boolean drink;
     private boolean smoke;
-    private char gender;
+    private String gender;
     private List<Integer> interests;
 
     public String getPassword() {
@@ -83,11 +83,11 @@ public class Usuario {
         this.phonenumber = phonenumber;
     }
 
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 

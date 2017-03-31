@@ -12,6 +12,16 @@ public class Quarto implements Serializable{
     private int id;
     private String width;
     private String height;
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    private String price;
     private String expenses;
     private int address_id;
     private int landlord_id;
