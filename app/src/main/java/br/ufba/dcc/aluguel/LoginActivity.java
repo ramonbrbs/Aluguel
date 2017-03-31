@@ -27,15 +27,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        try {
-            List<Quarto> quartos = QuartoWS.listaQuartos();
-            String teste = "aaa";
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-        //String j = quartos.toString();
+
 
         Button BtnEntrar = (Button) findViewById(R.id.brnLogin);
         Button BtnRegistrar = (Button) findViewById(R.id.btnRegister);

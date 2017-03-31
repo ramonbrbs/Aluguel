@@ -27,9 +27,9 @@ public class InfoDAO extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
         String create_table = "CREATE TABLE Info(" +
-                "   Id INTEGER PRIMARY KEY" +
+                "   Id INTEGER PRIMARY KEY," +
                 "   Hash           VARCHAR(512)    NOT NULL," +
-                "   Index         INTEGER" +
+                "   'Index'         INTEGER" +
                 ");";
         sqLiteDatabase.execSQL(create_table);
     }
