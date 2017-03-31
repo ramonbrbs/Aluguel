@@ -75,7 +75,7 @@ public class VisualizacaoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visualizacao);
         lista = (ArrayList<String>)getIntent().getSerializableExtra("LISTA");
-        index = 0;
+        this.index = 0;
         carregarQuarto(index);
         Button btnProx = (Button) findViewById(R.id.detalheProx);
         btnProx.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +86,7 @@ public class VisualizacaoActivity extends AppCompatActivity {
 
 
                 VisualizacaoActivity.this.carregarQuarto(VisualizacaoActivity.this.index);
-                VisualizacaoActivity.this.index ++;
+                //VisualizacaoActivity.this.index = VisualizacaoActivity.this.index + 1 ;
             }
         });
     }
