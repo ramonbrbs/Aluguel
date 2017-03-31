@@ -43,7 +43,6 @@ public class UsuarioWS {
     public static Usuario detalhe(int id) throws IOException, ExecutionException, InterruptedException {
         Gson toJS = new Gson();
 
-
         WebRequest request = new WebRequest(Constantes.enderecoAPI + "/user/"+id,"GET","");
         String retorno = request.execute("").get();
         Gson gson = new Gson();

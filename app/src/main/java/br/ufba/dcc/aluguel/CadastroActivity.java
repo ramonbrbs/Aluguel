@@ -1,6 +1,7 @@
 package br.ufba.dcc.aluguel;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -11,6 +12,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -36,16 +38,16 @@ public class CadastroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro);
 
 
-
+        final RadioGroup radioGroup = (RadioGroup) findViewById(R.id.grupoSexo);
         Button btnEnviar = (Button) findViewById(R.id.btnCadastrar);
         final EditText txtNome = (EditText) findViewById(R.id.txtNome);
         final EditText txtEmail = (EditText) findViewById(R.id.txtEmail);
-        EditText txtSenha = (EditText) findViewById(R.id.txtSenha);
+        final EditText txtSenha = (EditText) findViewById(R.id.txtSenha);
         final EditText txtTelefone = (EditText) findViewById(R.id.txtTelefone);
-        final EditText txtNasc = (EditText) findViewById(R.id.txtCidade);
-        final RadioButton rdkMasc = (RadioButton) findViewById(R.id.rdMasculino);
-        final RadioButton rdkFem = (RadioButton) findViewById(R.id.rdFem);
-        RadioButton rdOutro = (RadioButton) findViewById(R.id.rdOutro);
+        final EditText txtNasc = (EditText) findViewById(R.id.txtNasc);
+        final RadioButton rdkMasc = (RadioButton) findViewById(R.id.M);
+        final RadioButton rdkFem = (RadioButton) findViewById(R.id.F);
+        RadioButton rdOutro = (RadioButton) findViewById(R.id.O);
         final CheckBox chkBebe = (CheckBox) findViewById(R.id.chkBebe);
         final CheckBox chkFuma = (CheckBox) findViewById(R.id.chkFuma);
 
@@ -63,11 +65,7 @@ public class CadastroActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        TextView label = new TextView(this);
-        label.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
-        linearLayout.addView(label, 9);
         for(InterestType t: tipos){
-
             TextView text = new TextView(this);
             text.setText(t.getName() + ":");
             linearLayout.addView(text, 10);
@@ -96,17 +94,18 @@ public class CadastroActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Usuario u = new Usuario();
                 u.setEmail(txtEmail.getText().toString());
+                u.setPassword(txtSenha.getText().toString());
                 u.setName(txtNome.getText().toString());
-                u.setEmail(txtEmail.getText().toString());
                 u.setPhonenumber(txtTelefone.getText().toString());
                 u.setBirthdate(txtNasc.getText().toString());
-                if(rdkMasc.isChecked()){
-                    u.setSex('M');
-                }else if(rdkFem.isChecked()){
-                    u.setSex('F');
-                }else{
-                    u.setSex('O');
+                if(rdkFem.isChecked()) {
+                    u.setGender('F');
+                } else if (rdkMasc.isChecked()) {
+                    u.setGender('M');
+                } else {
+                    u.setGender('O');
                 }
+                u.setGender((char) radioGroup.getCheckedRadioButtonId());
                 if(chkBebe.isChecked()){
                     u.setDrink(true);
                 }else{
