@@ -30,17 +30,20 @@
                 android:text="Novo Anúncio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="5dp"
                 android:id="@+id/textView4"
                 android:textAppearance="@android:style/TextAppearance.Large"
                 android:textSize="30sp"
                 android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-smallcaps"
+                android:layout_marginBottom="10dp"/>
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                app:srcCompat="@android:drawable/ic_menu_help"
+                app:srcCompat="@android:drawable/ic_menu_gallery"
                 android:id="@+id/imgNovo"
                 android:layout_weight="0.89" />
 
@@ -55,53 +58,56 @@
                 android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/txtRua"
-                android:hint="Endereço" />
+                android:hint="Endereço"
+                android:layout_marginTop="20dp"/>
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
                 android:id="@+id/txtBairro"
-                android:hint="Bairro" />
+                android:hint="Bairro"
+                android:layout_marginTop="10dp"/>
 
             <EditText
-                android:layout_width="128dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
                 android:id="@+id/txtNum"
-                android:hint="Numero" />
+                android:hint="Numero"
+                android:layout_marginTop="10dp"/>
 
             <EditText
-                android:layout_width="204dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPostalAddress"
                 android:ems="10"
                 android:id="@+id/txtCEP"
-                android:hint="CEP" />
+                android:hint="CEP"
+                android:layout_marginTop="10dp"/>
 
             <EditText
-                android:layout_width="231dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/txtCidade"
-                android:hint="Cidade" />
+                android:hint="Cidade"
+                android:layout_marginTop="10dp"/>
 
             <EditText
-                android:layout_width="186dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/txtEstado"
-                android:hint="Estado" />
+                android:hint="Estado"
+                android:layout_marginTop="10dp"/>
 
             <EditText
-                android:layout_width="152dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:ems="10"
@@ -109,7 +115,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:id="@+id/txtPreco"
-                android:hint="Preço" />
+                android:hint="Preço"
+                android:layout_marginTop="10dp"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -120,7 +127,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:id="@+id/txtComp"
-                android:hint="Comprimento" />
+                android:hint="Comprimento"
+                android:layout_marginTop="10dp"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -131,22 +139,25 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:id="@+id/txtLarg"
-                android:hint="Largura" />
+                android:hint="Largura"
+                android:layout_marginTop="10dp"/>
 
             <CheckBox
                 android:text="Compartilhado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/chkComp" />
+                android:id="@+id/chkComp"
+                android:layout_marginTop="10dp"/>/>
 
             <Button
             android:text="Publicar"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="66dp"
             android:id="@+id/btnPublicar"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>/>
         </LinearLayout>
     </ScrollView>
 
